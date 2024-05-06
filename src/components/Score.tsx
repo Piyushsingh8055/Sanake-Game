@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { Text, StyleSheet } from 'react-native';
-import { Colors } from '../styles/colors';
+import { View, Text, StyleSheet } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { Colors } from '../styles/colors';
 
 interface ScoreProps {
   score: number;
@@ -41,9 +41,14 @@ export default function Score({ score }: ScoreProps): JSX.Element {
   };
 
   return (
-    <Text style={styles.text}>
-      🍎 Score: {score} - High Score: {highScore}
-    </Text>
+    <View>
+      <Text style={styles.text}>
+        🍎 Score: {score}
+      </Text>
+      <Text style={styles.text1}>
+        🏆 {highScore}
+      </Text>
+    </View>
   );
 }
 
@@ -51,6 +56,11 @@ const styles = StyleSheet.create({
   text: {
     fontSize: 22,
     fontWeight: 'bold',
-    color: Colors.primary,
+    color: Colors.secondary,
+  },
+  text1: {
+    fontSize: 22,
+    fontWeight: 'bold',
+    color: Colors.tertiary,
   },
 });
