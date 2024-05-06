@@ -11,8 +11,6 @@ import Header from "./Header";
 import Score from "./Score";
 import Snake from "./Snake";
 import { ToastAndroid } from 'react-native';
-import { Dimensions } from 'react-native';
-
 const SNAKE_INITIAL_POSITION = [{ x: 0, y: 25 }];
 const FOOD_INITIAL_POSITION = { x: 15, y: 25 };
 const GAME_BOUNDS = { xMin: 0, xMax: 37, yMin: 0, yMax: 74 };
@@ -26,11 +24,6 @@ export default function Game(): JSX.Element {
   const [score, setScore] = useState<number>(0);
   const [isGameOver, setIsGameOver] = useState<boolean>(false);
   const [isPaused, setIsPaused] = useState<boolean>(false);
-const { width, height } = Dimensions.get('window');
-
-const BORDER_RADIUS = Math.min(width, height) * 0.05; // e.g., 5% of the smaller dimension
-const BORDER_WIDTH = Math.min(width, height) * 0.03; // e.g., 3% of the smaller dimension
-
   useEffect(() => {
     if (!isGameOver) {
       const intervalId = setInterval(() => {
